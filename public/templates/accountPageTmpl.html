@@ -1,0 +1,34 @@
+<h1>My account</h1>
+
+<form name="accountForm" ng-submit="submit()">
+	<div class="form-group" unique-id validate-messages-form="accountForm" validate-messages-input="name">
+		<label for="{{id}}">Name</label>
+		<input type="text" name="name" id="{{id}}" ng-model="user.name" class="form-control" ng-maxLength="255">
+	</div>
+	<div class="form-group" unique-id validate-messages-form="accountForm" validate-messages-input="surname">
+		<label for="{{id}}">Surname</label>
+		<input type="text" name="surname" id="{{id}}" ng-model="user.surname" class="form-control" ng-maxLength="255">
+	</div>
+	<div class="form-group" unique-id validate-messages-form="accountForm" validate-messages-input="email">
+		<label for="{{id}}">Email address</label>
+		<input type="email" name="email" id="{{id}}" ng-model="user.email" class="form-control" required>
+	</div>
+	<div class="form-group" unique-id validate-messages-form="accountForm" validate-messages-input="phone">
+		<label for="{{id}}">Phone (In format +3 8XXXXXXXXXX)</label>
+		<input type="text" name="phone" id="{{id}}" ng-model="user.phone" class="form-control" ng-minlength="10" ng-maxLength="10" ng-pattern="patterns.phone">
+	</div>
+	<button type="submit" class="btn btn-primary" disable-button>Save</button>
+	<button type="button" class="btn btn-primary" ng-click="openChangePswdForm()">Change password</button>
+</form>
+
+<form class="changePswdForm" name="changePswdForm" ng-if="isShownChangePswdForm" ng-submit="changePassword()">
+	<div class="form-group" unique-id validate-messages-form="changePswdForm" validate-messages-input="password">
+		<label for="{{id}}">New password</label>
+		<input type="password" name="password" class="form-control" ng-model="password.new" ng-minlength="6" ng-maxlength="16" ng-pattern="patterns.password" required>
+	</div>
+	<div class="form-group" unique-id validate-messages-form="changePswdForm" validate-messages-input="confirmPassword">
+		<label for="{{id}}">Repeat password</label>
+		<input type="password" name="confirmPassword" class="form-control" ng-model="password.confirm" ng-minlength="6" ng-maxlength="16" ng-pattern="patterns.password" compare-to="password.new" required>
+	</div>
+	<button type="submit" class="btn btn-primary" disable-button>Change</button>
+</form>

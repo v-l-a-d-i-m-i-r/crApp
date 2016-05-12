@@ -1,0 +1,31 @@
+<div class="wrapper page-controls">
+	<div class="select">
+		<label>Products per page</label>
+		<select name="perPageSelect" class="form-control" ng-model="itemsPerPage" ng-change="onItemsPerPageChange()" ng-options="option for option in perPageArr"></select>
+	</div>
+	<div class="buttons">
+		<button type="button" class="btn btn-primary" ui-sref="user.product">Add new</button>
+		<button type="button" class="btn btn-danger" ng-if="products.length" ng-click="deleteProducts()">Delete checked products</button>
+	</div>
+</div>
+
+<div class="pagination-wrapper">
+	<div uib-pagination total-items="products.length" ng-model="currentPage" items-per-page="itemsPerPage"></div>
+</div>
+
+<div uib-accordion close-others="oneAtATime">
+	<div class="product" ng-repeat="product in filteredProducts = (products | productsFilter : itemsPerPage : currentPage)" ng-controller="productCtrl">
+		<div class="product-controls">
+			<button type="button" class="btn btn-primary" ui-sref="user.product({prodId: product._id})">Edit</button>
+			<input type="checkbox" ng-model="product.delete">
+		</div>
+		<div uib-accordion-group>
+			<div uib-accordion-heading>
+				<span class="product-count">{{product.count}}.</span>
+				<span>{{product.name}}</span>
+				<span class="product-price">{{product.price}}</span>
+			</div>
+			{{product.description}}
+		</div>
+	</div>
+</div>

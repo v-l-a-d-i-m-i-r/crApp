@@ -1,0 +1,16 @@
+<form name="productForm" ng-submit="submit()">
+	<div class="form-group" unique-id validate-messages-form="productForm" validate-messages-input="name">
+		<label for="{{id}}">Title</label>
+		<input type="text" name="name" id="{{id}}" class="form-control" ng-model="product.name" ng-maxLength="255" required>
+	</div>
+	<div class="form-group" unique-id validate-messages-form="productForm" validate-messages-input="price">
+		<label for="{{id}}">Price (In format XXX,XX)</label>
+		<input type="text" name="price" id="{{id}}" class="form-control" ng-model="product.price" ng-pattern="patterns.price" required>
+	</div>
+	<div class="form-group" unique-id validate-messages-form="productForm" validate-messages-input="description">
+		<label for="{{id}}">Description</label>
+		<textarea name="description" id="{{id}}" class="form-control" rows="10" ng-model="product.description" ng-maxLength="1000" required></textarea>
+	</div>
+	<button type="submit" class="btn btn-primary" ng-if="product._id" disable-button>Update</button>
+	<button type="submit" class="btn btn-primary" ng-if="!product._id" disable-button>Create</button>
+</form>

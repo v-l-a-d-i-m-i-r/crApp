@@ -1,0 +1,81 @@
+.wrapper {
+	width: 1000px;
+	margin: 0 auto;
+}
+
+.wrapper:after {
+	content: '';
+	display: block;
+	width: 100%;
+	height: 1px;
+	clear: both;
+}
+
+.wrapper h1 {
+	text-align: center;
+}
+
+.wrapper form {
+	width: 70%;
+	margin: 0 auto;
+}
+
+.wrapper form.changePswdForm {
+	margin-top: 30px;
+}
+
+.hide {
+	display: none !important;
+}
+
+.error {
+	color: #f00;
+}
+
+.pagination-wrapper {
+	text-align: center;
+}
+
+.product {
+	position: relative;
+	margin-bottom: 10px;
+}
+
+.product .product-controls {
+	position: absolute;
+	top: 3px;
+	right: 5px;
+}
+
+.product .product-price {
+	float: right;
+	margin-right: 65px;
+}
+
+.product .product-count {
+	color: #f00;
+}
+
+.page-controls .select {
+	width: 225px;
+	float: left;
+}
+
+.page-controls .select label {
+	line-height: 30px;
+}
+
+.page-controls .select select {
+	width: 80px;
+	float: right;
+}
+
+.page-controls .buttons {
+	    width: 285px;
+	float: right;
+}
+
+.page-controls .buttons button {
+	float: right;
+	margin-left: 10px;
+}

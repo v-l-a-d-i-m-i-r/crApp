@@ -1,0 +1,13 @@
+<nav class="navbar navbar-default">
+	<div class="wrapper">
+		<div class="navbar-header">
+			<a class="navbar-brand" ui-sref="user.home">CR App</a>
+		</div>
+		<div class="pull-right">
+			<span class="navbar-text" ng-if="user"><i class="glyphicon glyphicon-user"></i> {{user.email}}</span>
+			<a class="btn navbar-btn btn-default" ui-sref="user.account" ng-if="user"><i class="glyphicon glyphicon-cog"></i> Account</a>
+			<a class="btn navbar-btn btn-danger" ng-click="logout()" ng-if="user">Logout</a>
+		</div>
+	</div>
+</nav>
+<div class="wrapper" ui-view></div>

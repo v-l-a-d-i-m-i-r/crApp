@@ -1,0 +1,19 @@
+<div class="wrapper">
+	<h1>Login page</h1>
+	<form name="loginForm" ng-submit="submit('login')">
+		<div class="form-group" unique-id validate-messages-form="loginForm" validate-messages-input="email">
+			<label for="{{id}}">Email address</label>
+			<input type="email" name="email" id="{{id}}" ng-model="user.email" class="form-control" required>
+		</div>
+		<div class="form-group" unique-id validate-messages-form="loginForm" validate-messages-input="password">
+			<label for="{{id}}">Password (Only US chars and numbers)</label>
+			<input type="password" name="password" id="{{id}}" ng-model="user.password" class="form-control" ng-minlength="6" ng-maxlength="16" ng-pattern="patterns.password" required>
+		</div>
+		<div class="form-group" unique-id>
+			<label for="{{id}}">Remember me</label>
+			<input type="checkbox" id="{{id}}" ng-model="user.rememberMe">
+		</div>
+		<button type="submit" class="btn btn-primary" disable-button>Login</button>
+		<button type="button" class="btn btn-primary" ui-sref="register">Register</button>
+	</form>
+</div>
